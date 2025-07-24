@@ -4,7 +4,8 @@
   "main": "src/index.js",
   "description": "A custom logger with colored output",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "demo": "node examples/demo.js"
   },
   "keywords": ["logger", "debugginf", "console", "colored", "builder"],
   "author": "Kiptoo Kirui",
