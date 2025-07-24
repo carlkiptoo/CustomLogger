@@ -92,3 +92,4 @@ class ColoredLogger {
     return this;
   }
 }
+module.exports = ColoredLogger;
