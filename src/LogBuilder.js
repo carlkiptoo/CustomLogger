@@ -26,4 +26,39 @@ class LogBuilder {
         return this;
     }
 
+    withColor(color) {
+        this.options.customColor = color;
+        return this;
+    }
+
+    bold() {
+        this.options.bold = true;
+        return this;
+    }
+
+    dim() {
+        this.options.dim = true;
+        return this;
+    }
+
+    withoutTimesteamp() {
+        this.opttions.includeTimestamp = false;
+        return this;
+    }
+
+    withTimestamp() {
+        this.options.includeTimestamp = true;
+        return this;
+    }
+
+    withMetadata(metadata) {
+        this.options.metadata = metadata;
+        return this;
+    }
+
+    withIndent(indent) {
+        this.options.indent = indent;
+        return this;    
+    }
+
 }
