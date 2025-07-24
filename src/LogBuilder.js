@@ -61,4 +61,18 @@ class LogBuilder {
         return this;    
     }
 
+    message(text, additionalOptions = {}) {
+        const finalOptions = {...this.options, ...additionalOptions};
+        const theme = this.logger.getTheme();
+        const levelConfig = theme[this.level];
+
+        if (!levelConfig) {
+            throw new Error(`Unknown log level: ${this.level}`);
+        }
+
+        let parts = [];
+
+        
+    }
+
 }
