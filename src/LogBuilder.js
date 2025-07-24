@@ -118,6 +118,14 @@ class LogBuilder {
 
         return this;
 
+    }
+
+    object(obj, label = null) {
+        const objStr = JSON.stringify(obj, null, 2);
+        const message = label ? `${label}:\n${objStr}` : objStr;
+        return this.message(message);
+
+        
 
     }
 
