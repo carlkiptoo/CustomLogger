@@ -78,6 +78,15 @@ class LogBuilder {
             parts.push(`[${coloredTimestamp}]`);
         }
 
+        const color = finalOptions.customColor || levelConfig.color;
+        let levelText = levelConfig.name;
+
+        if (finalOptions.bold) levelText = `${theme.bold}${levelText}`;
+        if (finalOptions.dim) levelText = `${theme.dim}${levelText}`;
+
+        const coloredLevel = this.logger.applyColor(levelText, color);
+        parts.push(`[${coloredLevel}]`);
+
 
     }
 
