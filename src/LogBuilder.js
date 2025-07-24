@@ -87,6 +87,20 @@ class LogBuilder {
         const coloredLevel = this.logger.applyColor(levelText, color);
         parts.push(`[${coloredLevel}]`);
 
+        if (finalOptions.prefix) {
+            parts.push(`${finalOptions.prefix} `);
+        }
+
+        let mainMessage = text;
+        if (finalOptions.bold && this.logger.config.colorEnabled) {
+            mainMessage = `${theme.bold}${mainMessage}${theme.reset}`;
+        }
+        if (finalOptions.dim && this.logger.config.colorEnabled) {
+            mainMessage = `${theme.dim}${mainMessage}${theme.reset}`;
+        }
+
+        parts.push(mainMessage);
+
 
     }
 
