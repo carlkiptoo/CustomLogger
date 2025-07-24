@@ -36,4 +36,22 @@ class ColoredLogger {
       },
     };
   }
+
+  detectColorSupport() {
+    if (typeof process !== 'undefined' && process.env) {
+        return !!(
+            process.stdout &&
+            process.stdout.isTTY &&
+            process.env.TERM !== 'dumb' &&
+            !process.env.NO_COLOR
+        );
+    }
+
+    if (typeof window !== 'undefined') {
+        return true;
+    }
+
+    return false;
+
+  }
 }
