@@ -1,0 +1,13 @@
+{
+  "name": "custom~logger",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "description": "A custom logger with colored output",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["logger", "debugginf", "console", "colored", "builder"],
+  "author": "Kiptoo Kirui",
+  "license": "ISC"
+  
+}
