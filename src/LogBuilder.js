@@ -72,7 +72,13 @@ class LogBuilder {
 
         let parts = [];
 
-        
+        if (finalOptions.includeTimestamp) {
+            const timestamp = this.logger.formatTimestamp();
+            const coloredTimestamp = this.logger.applyColor(timestamp, theme.timestamp);
+            parts.push(`[${coloredTimestamp}]`);
+        }
+
+
     }
 
 }
