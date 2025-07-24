@@ -86,4 +86,9 @@ class ColoredLogger {
     this.config = {...this.config, ...newConfig};
     return this;
   }
+
+  addTheme(name, theme) {
+    this.themes[name] = theme;
+    return this;
+  }
 }
