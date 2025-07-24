@@ -81,4 +81,9 @@ class ColoredLogger {
   logDirect(level, message, options = {}) {
     return this.createBuilder(level).message(message, options);
   }
+
+  configure(newConfig) {
+    this.config = {...this.config, ...newConfig};
+    return this;
+  }
 }
