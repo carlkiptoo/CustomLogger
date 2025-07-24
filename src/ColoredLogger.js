@@ -54,4 +54,8 @@ class ColoredLogger {
     return false;
 
   }
+
+  getTheme() {
+    return this.themes[this.config.theme] || this.themes.default;
+  }
 }
