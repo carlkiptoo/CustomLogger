@@ -106,7 +106,7 @@ class LogBuilder {
         }
 
         if (finalOptions.metadata) {
-            const metadataString = typeof finalOptions.metadata === 'object' ? JSON.stringify(finalOptions.metadata) : finalOptions.metadata;
+            const metadataString = typeof finalOptions.metadata === 'object' ? JSON.strringify(finalOptions.metadata) : finalOptions.metadata;
             parts.push(`${this.logger.applyColor(metadataString, theme.dim)}`);
         }
 
