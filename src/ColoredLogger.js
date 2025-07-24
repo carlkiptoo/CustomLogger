@@ -73,4 +73,12 @@ class ColoredLogger {
     const theme = this.getTheme();
     return `${color}${text}${theme.reset}`;
   }
+
+  createBuilder(level) {
+    return new LogBuilder(this, level);
+  }
+
+  logDirect(level, message, options = {}) {
+    return this.createBuilder(level).message(message, options);
+  }
 }
