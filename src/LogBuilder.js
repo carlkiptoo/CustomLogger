@@ -132,4 +132,32 @@ class LogBuilder {
         return this.message(message);
     }
 
+    table(data, label = null) {
+        if (!Array.isArray(data) || data.length === 0) {
+            return this.message(label ? `${label}: (empty)` : '(empty)');
+        }
+
+        const headers = Object.keys(data[0]);
+        const rows = data.map(item => headers.map(header => String(item[header] || '')));
+
+        const widths = headers.map((header, i) => 
+            Math.max(header.length, ...rows.map(row => row[i].length))
+        );
+
+        const headerRow = headers.map((header, i) =>  header.padEnd(widths[i])).join(' | ');
+        const separator = widths.map(width => '-'.repeat(width)).join('-|-');
+        const dataRows = rows.map(row =>
+            row.map((cell, i) => cell.padEnd(widths[i])).join(' | ')
+        );
+
+        const table = [headerRow, separator, ...dataRows].join('\n');
+        const message = label ? `${label}:\n${table}` : table;
+        return this.message(message);
+
+    }
+
+
+
 }
+
+module.exports = LogBuilder;
