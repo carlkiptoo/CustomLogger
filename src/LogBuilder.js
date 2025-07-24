@@ -101,6 +101,23 @@ class LogBuilder {
 
         parts.push(mainMessage);
 
+        if (finalOptions.prefix) {
+            parts.push(` ${finalOptions.suffix}`);
+        }
+
+        if (finalOptions.metadata) {
+            const metadataString = typeof finalOptions.metadata === 'object' ? JSON.strringify(finalOptions.metadata) : finalOptions.metadata;
+            parts.push(`${this.logger.applyColor(metadataString, theme.dim)}`);
+        }
+
+        const indent = ' '.repeat(finalOptions.indent);
+        const fullMessage = indent + parts.join(' ');
+
+        const outputMethod = this.level === 'error' ? 'error' : 'log';
+        this.logger.config.outputStream[outputMethod](fullMessage);
+
+        return this;
+
 
     }
 
