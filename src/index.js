@@ -1,10 +1,22 @@
-const {ColoredLogger} = require('./ColoredLogger');
+const ColoredLogger = require('./ColoredLogger');
+const LogBuilder = require('./LogBuilder');
 
-function createLogger(options = {}) {
+function createLogger(options ={}) {
     return new ColoredLogger(options);
 }
 
-module.exports = {
-    ColoredLogger,
-    createLogger
+const loggerPresets = {
+    development: (options = {}) => createLogger({
+        showTimestamp: true,
+        theme: 'default',
+        colorEnabled: true,
+        ...options
+    }),
+
+    production: (options = {}) => createLogger({
+        showTimestamp: true,
+        theme: 'default',
+        colorEnabled: false,
+        ...options
+    })
 }
