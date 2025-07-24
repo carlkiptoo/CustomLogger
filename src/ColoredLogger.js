@@ -67,4 +67,10 @@ class ColoredLogger {
 
     return `${hours}:${minutes}:${seconds}`;
   }
+
+  applyColor(text, color) {
+    if (!this.config.colorEnabled) return text;
+    const theme = this.getTheme();
+    return `${color}${text}${theme.reset}`;
+  }
 }
