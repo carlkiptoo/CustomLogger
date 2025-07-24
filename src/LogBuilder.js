@@ -124,9 +124,12 @@ class LogBuilder {
         const objStr = JSON.stringify(obj, null, 2);
         const message = label ? `${label}:\n${objStr}` : objStr;
         return this.message(message);
+    }
 
-        
-
+    array(arr, label = null) {
+        const arrStr = arr.map((item, index) => `${index}: ${JSON.stringify(item)}`).join('\n');
+        const message = label ? `${label}:\n${arrStr}` : arrStr;
+        return this.message(message);
     }
 
 }
